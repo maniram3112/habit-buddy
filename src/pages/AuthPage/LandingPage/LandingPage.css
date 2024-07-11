@@ -7,3 +7,27 @@
     width: 100%;
     /* display: flex; */
 }
+
+.landingPage-content{
+    width: 100%;
+    /* height: auto; */
+}
+
+.content{
+    border: 3px #ffffff32 solid;
+    color: var(--color-text);
+    background: #ffffff32;
+    /* margin-bottom: 1rem; */
+    /* margin-top: 1rem; */
+    margin: 1rem 0.8rem;
+    border-radius: 5px;
+    padding: 0.75rem 0.5rem;
+    font-family: var(--font-base);
+    font-size: 18px;
+    font-weight: 500;
+    /* width: 75%; */
+}
+
+.content p:first-child{
+    margin-bottom: 0.7rem;
+}
