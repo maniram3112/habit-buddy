@@ -41,7 +41,7 @@ const SignUp = ({handleAuth}) => {
                 placeholder="Re-enter your password"
                 required
                 />
-                <button type="submit">Sign Up</button>
+                <button type="submit" className="custom_btn">Sign Up</button>
             </form>
         </div>
     );

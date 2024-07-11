@@ -1,28 +1,36 @@
 .landingPage_container{
     background-image: url(../../../assets/landingPage/landingPageBg.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    width: 100%;
-    /* display: flex; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* padding: 20px; */
+    font-family: var(--font-base);
+    color: var(--color-text);
+    min-height: 100vh;
+    position: relative;
 }
 
 .landingPage-content{
     width: 100%;
     /* height: auto; */
+    max-width: 800px;
+    margin-top: 20px;
+    align-self: flex-start;
+    transition: transform 0.3s ease-in-out;
 }
+/* .shift-left{
+    transform: translateX(-300px);
+} */
 
-.content{
-    border: 3px #ffffff32 solid;
-    color: var(--color-text);
+.landingPage-content .content{
+    border: 3px #ffffff96 solid;
     background: #ffffff32;
     /* margin-bottom: 1rem; */
     /* margin-top: 1rem; */
     margin: 1rem 0.8rem;
     border-radius: 5px;
     padding: 0.75rem 0.5rem;
-    font-family: var(--font-base);
     font-size: 18px;
     font-weight: 500;
     /* width: 75%; */
@@ -30,4 +38,50 @@
 
 .content p:first-child{
     margin-bottom: 0.7rem;
+}
+
+.form-section{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    transition: background 0.3s ease-in-out;
+}
+
+.signIn-bg{
+    background-image: url(../../../assets/landingPage/signInBg.jpg);
+}
+
+.signIn-bg, .signUp-bg{
+    width: 300px;
+    height: auto;
+    position: fixed;
+    top: 100px;
+    right: 0;
+    z-index: 1200;
+    padding: 20px;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.signIn-bg h2 , .signUp-bg h2{
+    text-align: center;
+    font-family: var(--font-base);
+    margin-bottom: 1.5rem;
+}
+
+.signIn-bg input, .signUp-bg input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.signIn-bg button:hover,
+.signUp-bg button:hover{
+    background: #05acc6;
 }

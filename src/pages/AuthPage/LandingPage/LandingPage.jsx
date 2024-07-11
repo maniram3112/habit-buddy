@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import components from '../../../components';
 import constants from '../../../constants';
+import SignIn from "../signIn/SignIn";
+import SignUp from "../signUp/SignUp";
 import './LandingPage.css';
 // import images from '../../../assets';
 
@@ -8,11 +10,21 @@ const {Navbar} = components;
 const {Content} = constants;
 
 const LandingPage = () =>{
+
+    const [activeSection, setActiveSection] = useState(null);
+
+    const handleAuth = (isAuthenticated, message) => {
+        alert(message);
+    };
+
+    const handleSectionChange = (section) =>{
+        setActiveSection(section);
+    }
+
     return(
-        <div className="landingPage_container">
-            {/* <img src={images.landingPageBg} alt="Landing page"/> */}
-            <Navbar/>
-            <div className="landingPage-content">
+        <div className="landingPage_container bg">
+            <Navbar onSectionChange={handleSectionChange}/>
+            <div className={`landingPage-content ${activeSection ? 'shift-left' : ''}`}>
                 <div className="content">
                     <p>{Content.whyHabits.title}</p>
                     <p>{Content.whyHabits.text}</p>
@@ -30,8 +42,22 @@ const LandingPage = () =>{
                     <p>{Content.ConsistencyImportance.text}</p>
                 </div>
             </div>
-        {/* <SignIn/> */}
-        {/* <SignUp/> */}
+            <div className="landingPage-form">
+                {
+                    activeSection === 'signin' && (
+                        <div className="signIn-bg bg">
+                            <SignIn handleAuth={handleAuth}/>
+                        </div>
+                    )
+                }
+                {
+                    activeSection === 'signup' && (
+                        <div className="signUp-bg">
+                            <SignUp handleAuth={handleAuth}/>
+                        </div>
+                    )
+                }
+            </div>
         </div>
     )
 }

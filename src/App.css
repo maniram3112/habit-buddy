@@ -16,4 +16,13 @@
   border: none;
   outline: none;
   cursor: pointer;
+  color: #fff;
+}
+
+.bg{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
 }

@@ -2,15 +2,15 @@ import React from "react";
 import images from '../../../assets';
 import './Navbar.css';
 
-const Navbar = () =>{
+const Navbar = ({onSectionChange}) =>{
     return(
         <div className="authPage_container">
             <div className="authPage-logo">
                 <img src={images.logo2} alt='Logo'/>
             </div>
             <div className="authPage-btn">
-                <button className="custom_btn">SignIn</button>
-                <button className="custom_btn">SignUp</button>
+                <button className="custom_btn" onClick={() => onSectionChange('signin')}>SignIn</button>
+                <button className="custom_btn" onClick={() => onSectionChange('signup')}>SignUp</button>
             </div>
         </div>
     );

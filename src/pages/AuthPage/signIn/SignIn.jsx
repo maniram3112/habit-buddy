@@ -33,7 +33,7 @@ const SignIn = ({handleAuth}) =>{
                 placeholder="Enter your password"
                 required
                 />
-                <button type="submit">SignIn</button>
+                <button type="submit" className="custom_btn">SignIn</button>
             </form>
         </div>
     );
