@@ -4,7 +4,8 @@
   --font-base: 'Alegreya Sans',serif;
   --font-alt: 'Open Sans', sans-serif;
   
-  --color-btn: #04a2be;
+  --color-btn: #0d5d69c7;
+  --color-btn-hover: #0da2b9;
 }
 
 * {

@@ -32,3 +32,7 @@
     align-items: center;
     gap: 2rem;
 }
+
+.authPage-btn button:hover{
+    background: var(--color-btn-hover);
+}

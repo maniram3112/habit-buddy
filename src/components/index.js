@@ -1,4 +1,4 @@
-import Navbar from './AuthPage/Navbar';
+import Navbar from './AuthPage/Navbar/Navbar';
 
 const components = {
     Navbar
