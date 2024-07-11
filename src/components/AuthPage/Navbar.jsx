@@ -6,11 +6,11 @@ const Navbar = () =>{
     return(
         <div className="authPage_container">
             <div className="authPage-logo">
-                <img src={images.logo1} alt='Logo'/>
+                <img src={images.logo2} alt='Logo'/>
             </div>
             <div className="authPage-btn">
-                <button>SignIn</button>
-                <button>SignUp</button>
+                <button className="custom_btn">SignIn</button>
+                <button className="custom_btn">SignUp</button>
             </div>
         </div>
     );
