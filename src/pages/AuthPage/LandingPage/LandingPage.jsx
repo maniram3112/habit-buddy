@@ -22,7 +22,7 @@ const LandingPage = () =>{
     }
 
     return(
-        <div className="landingPage_container bg">
+        <div className="landingPage_container bg-img">
             <Navbar onSectionChange={handleSectionChange}/>
             <div className={`landingPage-content ${activeSection ? 'shift-left' : ''}`}>
                 <div className="content">
@@ -45,7 +45,7 @@ const LandingPage = () =>{
             <div className="landingPage-form">
                 {
                     activeSection === 'signin' && (
-                        <div className="signIn-bg bg">
+                        <div className="signIn-bg">
                             <SignIn handleAuth={handleAuth}/>
                         </div>
                     )

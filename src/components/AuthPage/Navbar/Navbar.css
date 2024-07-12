@@ -41,3 +41,58 @@
 .authPage-btn button:hover{
     background: var(--color-btn-hover);
 }
+
+@media screen and (max-width: 768px){
+    .authPage_container{
+        height: 80px;
+        padding: 0 10px;
+    }
+
+    .authPage-logo {
+        height: 80px;
+    }
+
+    .authPage-logo img{
+        height: 60%;
+    }
+
+    .authPage-btn{
+        gap: 1rem;
+    }
+
+    .authPage-btn button{
+        padding: 0 0.75rem;
+        font-weight: 400;
+        letter-spacing: 0.02em;
+        line-height: 27px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .authPage_container{
+        height: 60px;
+        /* padding: 0 10px; */
+    }
+
+    .authPage-logo {
+        height: 60px;
+    }
+
+    .authPage-logo img{
+        height: 50%;
+    }
+
+    .authPage-btn{
+        gap: 0.5rem;
+        flex-direction: column;
+    }
+
+    .authPage-btn button{
+        padding: 0 0.5rem;
+        font-weight: 300;
+        letter-spacing: 0.01em;
+        line-height: 25px;
+        font-size: 12px;
+    }
+}
