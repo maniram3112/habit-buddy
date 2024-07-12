@@ -1,5 +1,5 @@
 .addHabit-modal{
-    position: absolute;
+    position: fixed;
     /* top: calc(20% + 5.5rem);
     left: calc(3% + 5rem); */
     /* transform: translate(-50%, -50%); */

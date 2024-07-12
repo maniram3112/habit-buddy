@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import components from "../../components";
 import './Home.css';
 
@@ -9,20 +9,27 @@ const Home = () => {
     const [showModal, setShowModal] = useState(false);
     const [habits, setHabits] = useState([]);
 
-    // const toggleModal = () => {
-    //     setShowModal(!showModal);
-    // };
+    // load habits from local storage
+    useEffect(() => {
+        const storeHabits = JSON.parse(localStorage.getItem('habits')) || [];
+        setHabits(storeHabits);
+    },[]);
 
+    // Function to add a new habit
     const handleAddHabbit = (habit) => {
-        setHabits([...habits, habit]);
-        // toggleModal();
-        setShowModal(false);
+        const newHabit = {id: habits.length + 1, habit};
+        const updatedHabits = [...habits, newHabit];
+        setHabits(updatedHabits);
+        localStorage.setItem('habits', JSON.stringify(updatedHabits));
+        setShowModal(false); // to close or cancel the modal
     }
 
+    // function to close or cancel the modal
     const handleCloseModal = () =>{
         setShowModal(false);
     }
 
+    // function tp open the modal
     const handleOpenModal = () =>{
         setShowModal(true);
     }
@@ -38,12 +45,12 @@ const Home = () => {
                 {
                     habits.length > 0 && (
                         <div className="habits-list">
-                            <h2>My Habits</h2>
+                            <h2>My Habits:</h2>
                             <ul>
                                 {
                                     habits.map((habit, index) => (
-                                        <li key={index}>
-                                            {habit}
+                                        <li key={habit.id}>
+                                            {habit.habit}
                                         </li>
                                     ))
                                 }
