@@ -20,18 +20,18 @@ const SignIn = ({handleAuth}) =>{
             <form onSubmit={handleSignIn}>
                 <h2>Sign In</h2>
                 <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your mail address"
-                required
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your mail address"
+                    required
                 />
                 <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
-                required
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter your password"
+                    required
                 />
                 <button type="submit" className="custom_btn">SignIn</button>
             </form>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import components from '../../../components';
 import constants from '../../../constants';
 import SignIn from "../signIn/SignIn";
@@ -9,17 +10,22 @@ import './LandingPage.css';
 const {Navbar} = components;
 const {Content} = constants;
 
-const LandingPage = () =>{
+const LandingPage = ({handleAuth}) =>{
 
     const [activeSection, setActiveSection] = useState(null);
 
-    const handleAuth = (isAuthenticated, message) => {
-        alert(message);
-    };
+    const navigate = useNavigate();
 
     const handleSectionChange = (section) =>{
         setActiveSection(section);
     }
+
+    const handleAuthWrapper  = (isAuthenticated, message) => {
+        handleAuth(isAuthenticated, message);
+        if(isAuthenticated){
+            navigate('/home');
+        }
+    };
 
     return(
         <div className="landingPage_container bg-img">
@@ -45,15 +51,15 @@ const LandingPage = () =>{
             <div className="landingPage-form">
                 {
                     activeSection === 'signin' && (
-                        <div className="signIn-bg">
-                            <SignIn handleAuth={handleAuth}/>
+                        <div className="signIn-bg bg">
+                            <SignIn handleAuth={handleAuthWrapper}/>
                         </div>
                     )
                 }
                 {
                     activeSection === 'signup' && (
                         <div className="signUp-bg">
-                            <SignUp handleAuth={handleAuth}/>
+                            <SignUp handleAuth={handleAuthWrapper}/>
                         </div>
                     )
                 }
