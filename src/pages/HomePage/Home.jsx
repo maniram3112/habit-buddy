@@ -32,7 +32,7 @@ const Home = () => {
         setShowModal(false);
     }
 
-    // function tp open the modal
+    // function to open the modal
     const handleOpenModal = () =>{
         setShowModal(true);
     }
@@ -44,8 +44,8 @@ const Home = () => {
         setEditModal(true);
     }
 
-    // function to close the the edit modal
-    const handleCloseEditModal = (updateHabit) => {
+    // function to update an existing habit
+    const handleUpdateHabit = (updateHabit) => {
         const updatedHabits = habits.map((habit) =>
             habit.id === updateHabit.id ? updateHabit : habit
         );
@@ -93,16 +93,13 @@ const Home = () => {
                                             >
                                                 Manage
                                             </button>
-                                            {editModal
-                                            &&
-                                                currentHabit
-                                            &&
-                                                currentHabit.id === habit.id
-                                            &&(
+                                            {editModal &&
+                                                currentHabit &&
+                                                currentHabit.id === habit.id &&(
                                                 <EditHabit
                                                     habit={currentHabit}
-                                                    onClose={handleCloseEditModal}
-                                                    onUpdateHabit={handleEditHabit}
+                                                    onClose={() => setEditModal(false)}
+                                                    onUpdateHabit={handleUpdateHabit}
                                                     onDeleteHabit={handleDeleteHabit}
                                                 />
                                             )}
