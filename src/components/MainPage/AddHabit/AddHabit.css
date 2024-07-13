@@ -1,29 +1,8 @@
-.addHabit-modal{
-    position: absolute;
-    /* top: calc(20% + 5.5rem);
-    left: calc(3% + 5rem); */
-    /* transform: translate(-50%, -50%); */
-    margin-left: 1.5rem;
-    width: 30%;
-    height: auto;
-    background: #fff;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10 rgba(0,0,0,0.1);
-    z-index: 1000;
-}
+/* .addHabit-modal{} */
 
-.addHabit-modal input{
-    width: 100%;
-    border: 1px #ccc solid;
-    border-radius: 5px;
-    padding: 1.25rem;
-    margin-bottom: 1.25rem;
-    outline: none;
-    font-family: var(--font-base);
-    font-size: 15px;
-}
+/* .addHabit-content{} */
+
+/* .addHabit-modal input{} */
 
 .addHabit-modal .btn{
     display: flex;
@@ -32,6 +11,6 @@
     /* gap: 15px; */
 }
 
-.custom_btn{
+.btns .custom_btn{
     margin-right: 1rem;
 }

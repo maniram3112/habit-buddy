@@ -20,7 +20,7 @@ const DropDownEdit = ({ habit, onUpdateHabit, onDeleteHabit, onStatusChange }) =
     const renderDropDown = () => {
         if (status === "on hold") {
             return (
-                <select
+                <select className="dropdown custom_btn"
                     value={status}
                     onChange={handleStatusChange}
                 >
@@ -31,7 +31,7 @@ const DropDownEdit = ({ habit, onUpdateHabit, onDeleteHabit, onStatusChange }) =
             );
         } else {
             return (
-                <select
+                <select className="dropdown custom_btn"
                     value={status}
                     onChange={handleStatusChange}
                 >

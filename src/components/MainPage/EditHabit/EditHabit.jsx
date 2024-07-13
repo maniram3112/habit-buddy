@@ -28,8 +28,8 @@ const EditHabit = ({habit, onClose, onUpdateHabit, onDeleteHabit}) =>{
     }
 
     return(
-        <div className="editHabit-modal">
-            <div className="editHabit-content">
+        <div className="editHabit-modal modal">
+            <div className="editHabit-content modal-content">
                 <input
                     type="text"
                     value={editHabit}
@@ -44,9 +44,9 @@ const EditHabit = ({habit, onClose, onUpdateHabit, onDeleteHabit}) =>{
                 />
                 {/* </div> */}
                 <div className="btns">
-                    <button onClick={handleSave}>Save</button>
-                    <button onClick={handleDelete}>Delete</button>
-                    <button onClick={onClose}>Close</button>
+                    <button className="editHabit-btn custom_btn" onClick={handleSave}>Save</button>
+                    <button className="editHabit-btn custom_btn" onClick={handleDelete}>Delete</button>
+                    <button className="editHabit-btn custom_btn" onClick={onClose}>Close</button>
                 </div>
             </div>
         </div>

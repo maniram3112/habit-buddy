@@ -14,16 +14,18 @@ const AddHabit = ({onAddHabit, onClose}) => {
     };
 
     return(
-        <div className="addHabit-modal">
-            <input
-                type="text"
-                placeholder="Add your new habit..."
-                value={habit}
-                onChange={(e) => setHabit(e.target.value)}
-            />
-            <div className="btns">
-                <button className="custom_btn" onClick={handleAddHabbit}>Add</button>
-                <button className="custom_btn" onClick={onClose}>Cancel</button>
+        <div className="addHabit-modal modal">
+            <div className="addHabit-content modal-content">
+                <input
+                    type="text"
+                    placeholder="Add your new habit..."
+                    value={habit}
+                    onChange={(e) => setHabit(e.target.value)}
+                />
+                <div className="btns">
+                    <button className="custom_btn" onClick={handleAddHabbit}>Add</button>
+                    <button className="custom_btn" onClick={onClose}>Cancel</button>
+                </div>
             </div>
         </div>
     );

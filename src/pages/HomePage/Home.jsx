@@ -90,19 +90,21 @@ const Home = () => {
                                             >
                                                 Manage
                                             </button>
+                                            {/* <div className="editModal"> */}
+                                                {editModal &&
+                                                    currentHabit &&
+                                                    currentHabit.id === habit.id && (
+                                                        <EditHabit
+                                                            habit={currentHabit}
+                                                            onClose={() => setEditModal(false)}
+                                                            onUpdateHabit={handleUpdateHabit}
+                                                            onDeleteHabit={handleDeleteHabit}
+                                                        />
+                                            )}
                                             <div className="current-status">
-                                                Current Status: {habit.status}
+                                                <p>Current Status: {habit.status}</p>
                                             </div>
-                                            {editModal &&
-                                                currentHabit &&
-                                                currentHabit.id === habit.id && (
-                                                    <EditHabit
-                                                        habit={currentHabit}
-                                                        onClose={() => setEditModal(false)}
-                                                        onUpdateHabit={handleUpdateHabit}
-                                                        onDeleteHabit={handleDeleteHabit}
-                                                    />
-                                                )}
+                                            {/* </div> */}
                                         </li>
                                     ))
                                 }
