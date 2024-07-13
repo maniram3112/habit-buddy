@@ -17,7 +17,7 @@ const AddHabit = ({onAddHabit, onClose}) => {
         <div className="addHabit-modal">
             <input
                 type="text"
-                placeholder="Enter new habit..."
+                placeholder="Add your new habit..."
                 value={habit}
                 onChange={(e) => setHabit(e.target.value)}
             />

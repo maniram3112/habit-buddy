@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import components from "../../components";
 import './Home.css';
 
-const {NavbarM, AddHabit} = components;
+const {NavbarM, AddHabit, EditHabit} = components;
 
 const Home = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [habits, setHabits] = useState([]);
+
+    const [editModal, setEditModal] = useState(false);
+    const [currentHabit, setCurrentHabit] = useState(null);
 
     // load habits from local storage
     useEffect(() => {
@@ -34,6 +37,31 @@ const Home = () => {
         setShowModal(true);
     }
 
+
+    // function to edit an exiting habits
+    const handleEditHabit = (habit) =>{
+        setCurrentHabit(habit);
+        setEditModal(true);
+    }
+
+    // function to close the the edit modal
+    const handleCloseEditModal = (updateHabit) => {
+        const updatedHabits = habits.map((habit) =>
+            habit.id === updateHabit.id ? updateHabit : habit
+        );
+        setHabits(updatedHabits);
+        localStorage.setItem('habits', JSON.stringify(updatedHabits));
+        setEditModal(false);
+        setCurrentHabit(null);
+    }
+
+    // function to delete a habit
+    const handleDeleteHabit = (id) =>{
+        const updatedHabits = habits.filter((habit) => habit.id !== id);
+        setHabits(updatedHabits);
+        localStorage.setItem('habits', JSON.stringify(updatedHabits));
+    }
+
     return(
         <div className="home">
             <NavbarM/>
@@ -42,25 +70,50 @@ const Home = () => {
                     <span className="add" onClick={handleOpenModal}>+</span>
                     <p>Add your New Habit</p>
                 </div>
+                {showModal && (
+                    <div className="modal-container">
+                        <AddHabit
+                            onAddHabit={handleAddHabbit}
+                            onClose={handleCloseModal}
+                        />
+                    </div>
+                )}
                 {
                     habits.length > 0 && (
                         <div className="habits-list">
                             <h2>My Habits:</h2>
                             <ul>
                                 {
-                                    habits.map((habit, index) => (
+                                    habits.map((habit) => (
                                         <li key={habit.id}>
                                             {habit.habit}
+                                            <button
+                                                className="manage custom_btn"
+                                                onClick={() => handleEditHabit(habit)}
+                                            >
+                                                Manage
+                                            </button>
+                                            {editModal
+                                            &&
+                                                currentHabit
+                                            &&
+                                                currentHabit.id === habit.id
+                                            &&(
+                                                <EditHabit
+                                                    habit={currentHabit}
+                                                    onClose={handleCloseEditModal}
+                                                    onUpdateHabit={handleEditHabit}
+                                                    onDeleteHabit={handleDeleteHabit}
+                                                />
+                                            )}
                                         </li>
                                     ))
                                 }
                             </ul>
-                            <button>Manage</button>
                         </div>
                     )
                 }
             </div>
-            {showModal && <AddHabit onAddHabit={handleAddHabbit} onClose={handleCloseModal} />}
         </div>
     );
 }
