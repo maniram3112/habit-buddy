@@ -2,49 +2,46 @@ import React, { useEffect, useState } from "react";
 import components from "../../components";
 import './Home.css';
 
-const {NavbarM, AddHabit, EditHabit} = components;
+const { NavbarM, AddHabit, EditHabit } = components;
 
 const Home = () => {
-
     const [showModal, setShowModal] = useState(false);
     const [habits, setHabits] = useState([]);
-
     const [editModal, setEditModal] = useState(false);
     const [currentHabit, setCurrentHabit] = useState(null);
 
-    // load habits from local storage
+    // Load habits from local storage
     useEffect(() => {
         const storeHabits = JSON.parse(localStorage.getItem('habits')) || [];
         setHabits(storeHabits);
-    },[]);
+    }, []);
 
     // Function to add a new habit
-    const handleAddHabbit = (habit) => {
-        const newHabit = {id: habits.length + 1, habit};
+    const handleAddHabit = (habit) => {
+        const newHabit = { id: habits.length + 1, habit, status: "on Going" }; // Default status set to "on hold"
         const updatedHabits = [...habits, newHabit];
         setHabits(updatedHabits);
         localStorage.setItem('habits', JSON.stringify(updatedHabits));
-        setShowModal(false); // to close or cancel the modal
+        setShowModal(false); // Close or cancel the modal
     }
 
-    // function to close or cancel the modal
-    const handleCloseModal = () =>{
+    // Function to close or cancel the modal
+    const handleCloseModal = () => {
         setShowModal(false);
     }
 
-    // function to open the modal
-    const handleOpenModal = () =>{
+    // Function to open the modal
+    const handleOpenModal = () => {
         setShowModal(true);
     }
 
-
-    // function to edit an exiting habits
-    const handleEditHabit = (habit) =>{
+    // Function to edit an existing habit
+    const handleEditHabit = (habit) => {
         setCurrentHabit(habit);
         setEditModal(true);
     }
 
-    // function to update an existing habit
+    // Function to update an existing habit
     const handleUpdateHabit = (updateHabit) => {
         const updatedHabits = habits.map((habit) =>
             habit.id === updateHabit.id ? updateHabit : habit
@@ -55,16 +52,16 @@ const Home = () => {
         setCurrentHabit(null);
     }
 
-    // function to delete a habit
-    const handleDeleteHabit = (id) =>{
+    // Function to delete a habit
+    const handleDeleteHabit = (id) => {
         const updatedHabits = habits.filter((habit) => habit.id !== id);
         setHabits(updatedHabits);
         localStorage.setItem('habits', JSON.stringify(updatedHabits));
     }
 
-    return(
+    return (
         <div className="home">
-            <NavbarM/>
+            <NavbarM />
             <div className="home_container">
                 <div className="home-add">
                     <span className="add" onClick={handleOpenModal}>+</span>
@@ -73,7 +70,7 @@ const Home = () => {
                 {showModal && (
                     <div className="modal-container">
                         <AddHabit
-                            onAddHabit={handleAddHabbit}
+                            onAddHabit={handleAddHabit}
                             onClose={handleCloseModal}
                         />
                     </div>
@@ -93,16 +90,19 @@ const Home = () => {
                                             >
                                                 Manage
                                             </button>
+                                            <div className="current-status">
+                                                Current Status: {habit.status}
+                                            </div>
                                             {editModal &&
                                                 currentHabit &&
-                                                currentHabit.id === habit.id &&(
-                                                <EditHabit
-                                                    habit={currentHabit}
-                                                    onClose={() => setEditModal(false)}
-                                                    onUpdateHabit={handleUpdateHabit}
-                                                    onDeleteHabit={handleDeleteHabit}
-                                                />
-                                            )}
+                                                currentHabit.id === habit.id && (
+                                                    <EditHabit
+                                                        habit={currentHabit}
+                                                        onClose={() => setEditModal(false)}
+                                                        onUpdateHabit={handleUpdateHabit}
+                                                        onDeleteHabit={handleDeleteHabit}
+                                                    />
+                                                )}
                                         </li>
                                     ))
                                 }

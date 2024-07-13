@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DropDownEdit from "../DropDownEdit/DropDownEdit";
 import './EditHabit.css';
 
 const EditHabit = ({habit, onClose, onUpdateHabit, onDeleteHabit}) =>{
@@ -34,18 +35,15 @@ const EditHabit = ({habit, onClose, onUpdateHabit, onDeleteHabit}) =>{
                     value={editHabit}
                     onChange={(e) => setEditHabit(e.target.value)}
                 />
-                <select
-                    value={status}
-                    onChange={(e) => setStatus(e.target.value)}
-                >
-                    <option value="status" hidden>Status</option>
-                    <option value="on Going">on Going</option>
-                    <option value="achieved">Achieved</option>
-                    <option value="quit">Quit</option>
-                    <option value="on hold">On Hold</option>
-                </select>
+                {/* <div className={`habit-container ${status === "on hold" ? "crossed" : ""}`}> */}
+                <DropDownEdit
+                    habit={{ ...habit, habit: editHabit, status }}
+                    onUpdateHabit={onUpdateHabit}
+                    onDeleteHabit={onDeleteHabit}
+                    onStatusChange={setStatus} //passing setStatus function to handle status change
+                />
+                {/* </div> */}
                 <div className="btns">
-                    {/* <button onClick={handleEdit}>Edit</button> */}
                     <button onClick={handleSave}>Save</button>
                     <button onClick={handleDelete}>Delete</button>
                     <button onClick={onClose}>Close</button>
