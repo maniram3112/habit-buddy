@@ -35,14 +35,14 @@ const EditHabit = ({habit, onClose, onUpdateHabit, onDeleteHabit}) =>{
                     value={editHabit}
                     onChange={(e) => setEditHabit(e.target.value)}
                 />
-                {/* <div className={`habit-container ${status === "on hold" ? "crossed" : ""}`}> */}
+                <div className={`habit-container ${status === "on hold" ? "crossed" : ""}`}>
                 <DropDownEdit
                     habit={{ ...habit, habit: editHabit, status }}
                     onUpdateHabit={onUpdateHabit}
                     onDeleteHabit={onDeleteHabit}
                     onStatusChange={setStatus} //passing setStatus function to handle status change
                 />
-                {/* </div> */}
+                </div>
                 <div className="btns">
                     <button className="editHabit-btn custom_btn" onClick={handleSave}>Save</button>
                     <button className="editHabit-btn custom_btn" onClick={handleDelete}>Delete</button>

@@ -5,7 +5,7 @@ const AddHabit = ({onAddHabit, onClose}) => {
 
     const [habit, setHabit] = useState('');
 
-    const handleAddHabbit = () => {
+    const handleAddHabit = () => {
         if(habit.trim()){
             onAddHabit(habit);
             setHabit('');
@@ -23,7 +23,7 @@ const AddHabit = ({onAddHabit, onClose}) => {
                     onChange={(e) => setHabit(e.target.value)}
                 />
                 <div className="btns">
-                    <button className="custom_btn" onClick={handleAddHabbit}>Add</button>
+                    <button className="custom_btn" onClick={handleAddHabit}>Add</button>
                     <button className="custom_btn" onClick={onClose}>Cancel</button>
                 </div>
             </div>
