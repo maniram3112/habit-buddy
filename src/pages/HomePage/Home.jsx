@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import images from "../../assets";
 import components from "../../components";
 import Streak from "../../components/MainPage/Streak/Streak";
 import './Home.css';
@@ -13,8 +14,8 @@ const Home = () => {
 
     // Load habits from local storage
     useEffect(() => {
-        const storeHabits = JSON.parse(localStorage.getItem('habits')) || [];
-        setHabits(storeHabits);
+        const storedHabits = JSON.parse(localStorage.getItem('habits')) || [];
+        setHabits(storedHabits);
     }, []);
 
     // Function to add a new habit
@@ -82,37 +83,48 @@ const Home = () => {
                         />
                     </div>
                 )}
-                {habits.length > 0 && (
-                    <div className="habits-list">
-                        <h2>My Habits:</h2>
-                        <ul>
-                            {habits.map((habit) => (
-                                <li key={habit.id}>
-                                    {habit.habit}
-                                    <button
-                                        className="manage custom_btn"
-                                        onClick={() => handleEditHabit(habit)}
-                                    >
-                                        Manage
-                                    </button>
-                                    {editModal && currentHabit && currentHabit.id === habit.id && (
-                                        <EditHabit
-                                            habit={currentHabit}
-                                            onClose={() => setEditModal(false)}
-                                            onUpdateHabit={handleUpdateHabit}
-                                            onDeleteHabit={handleDeleteHabit}
-                                        />
-                                    )}
-                                    <div className="current-status">
-                                        <p>Current Status: {habit.status}</p>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-                <Streak habits={habits} updateHabits={updateHabits}/>
+                <div className="habits-list">
+                    <h2>My Habits:</h2>
+                    <ul>
+                        {habits.map((habit) => (
+                            <li key={habit.id} className="habit-item">
+                                <span className="habit-name">{habit.habit}</span>
+                                <button
+                                    className="manage custom_btn"
+                                    onClick={() => handleEditHabit(habit)}
+                                >
+                                    Manage
+                                </button>
+                                <div className="current-status">
+                                    <p>{habit.status}</p>
+                                </div>
+                                <div className="streak-info">
+                                    <span>Streak: {habit.streak}</span>
+                                    <img
+                                        src={images.streak}
+                                        alt="streak img"
+                                        className="streak-img"
+                                    />
+                                </div>
+                                {editModal && currentHabit && currentHabit.id === habit.id && (
+                                    <EditHabit
+                                        habit={currentHabit}
+                                        onClose={() => setEditModal(false)}
+                                        onUpdateHabit={handleUpdateHabit}
+                                        onDeleteHabit={handleDeleteHabit}
+                                    />
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div className="highest-streak">
+                    <Streak habits={habits} updateHabits={updateHabits} />
+                </div>
             </div>
+            <footer className="footer">
+                <p>© 2024 Habit Buddy. All rights reserved.</p>
+            </footer>
         </div>
     );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './Streak.css';
+import images from "../../../assets";
 
 const Streak = ({ habits, updateHabits }) => {
     const [highestStreak, setHighestStreak] = useState(0);
@@ -32,20 +32,21 @@ const Streak = ({ habits, updateHabits }) => {
 
         if (habitsChanged) {
             updateHabits(updatedHabits); // Update the habits in the parent component or local storage
-            localStorage.setItem('habits', JSON.stringify(updatedHabits)); // Update local storage
+            localStorage.setItem('habits', JSON.stringify(updatedHabits)); // Updates local storage
         }
-    }, [habits, updateHabits]); // Watch habits and updateHabits for changes
+    }, [habits, updateHabits]); // Watches habits and updateHabits to change
 
     return (
         <div className="streak">
-            <h2>Highest Streak: {highestStreak}</h2>
-            <ul>
-                {habits.map(habit => (
-                    <li key={habit.id}>
-                        <span>{habit.habit}: {habit.streak}</span>
-                    </li>
-                ))}
-            </ul>
+            <div>
+                <h2>
+                    Highest Streak: {highestStreak}
+                    <img
+                        src={images.streak1}
+                        alt="highest streak img"
+                    />
+                </h2>
+            </div>
         </div>
     );
 };
