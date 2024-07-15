@@ -13,11 +13,12 @@ const Streak = ({ habits, updateHabits }) => {
             const lastCheckedDate = habit.lastChecked || today;
             const daysDifference = (new Date(today) - new Date(lastCheckedDate)) / (1000 * 60 * 60 * 24);
 
-            if (daysDifference > 1) {
-                if (habit.streak !== 0) {
-                    habit.streak = 0; // Resets streak if more than 1 day has passed
-                    habitsChanged = true;
-                }
+            if (habit.status === "on hold") {
+                habit.streak = 0; // Reset streak to zero if status is "on hold"
+                habitsChanged = true;
+            } else if (daysDifference > 1) {
+                habit.streak = 0; // Resets streak if more than 1 day has passed
+                habitsChanged = true;
             } else if (lastCheckedDate !== today) {
                 habit.streak += 1; // Increment streak if checked today
                 habitsChanged = true;
@@ -34,7 +35,7 @@ const Streak = ({ habits, updateHabits }) => {
             updateHabits(updatedHabits); // Update the habits in the parent component or local storage
             localStorage.setItem('habits', JSON.stringify(updatedHabits)); // Updates local storage
         }
-    }, [habits, updateHabits]); // Watches habits and updateHabits to change
+    }, [habits, updateHabits]);
 
     return (
         <div className="streak">

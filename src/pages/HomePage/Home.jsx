@@ -1,22 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import images from "../../assets";
 import components from "../../components";
-import Streak from "../../components/MainPage/Streak/Streak";
 import './Home.css';
 
-const { NavbarM, AddHabit, EditHabit } = components;
+const { NavbarM, AddHabit, EditHabit, Streak } = components;
 
-const Home = ({ handleAuth }) => {
+const Home = ({ handleAuth, habits, setHabits}) => {
     const [showModal, setShowModal] = useState(false);
-    const [habits, setHabits] = useState([]);
+    // const [habits, setHabits] = useState([]);
     const [editModal, setEditModal] = useState(false);
     const [currentHabit, setCurrentHabit] = useState(null);
 
     // Load habits from local storage
-    useEffect(() => {
-        const storedHabits = JSON.parse(localStorage.getItem('habits')) || [];
-        setHabits(storedHabits);
-    }, []);
+    // useEffect(() => {
+    //     const storedHabits = JSON.parse(localStorage.getItem('habits')) || [];
+    //     setHabits(storedHabits);
+    // }, []);
 
     // Function to add a new habit
     const handleAddHabit = (habit) => {

@@ -1,54 +1,62 @@
 body {
     margin: 0;
-    font-family:var(--font-base);
+    font-family: var(--font-base);
     background-color: #f0f0f0;
 }
 
 .profile-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 50px auto;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
 .profile-header {
     background-color: #007BFF;
     color: white;
-    padding: 20px;
+    padding: 40px 20px 60px;
     text-align: center;
     position: relative;
 }
 
 .profile-picture {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    border: 3px solid white;
+    border: 5px solid white;
     position: absolute;
-    top: 20px;
+    top: 30px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .profile-name {
-    margin-top: 70px;
-    font-size: 24px;
+    margin-top: 90px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.profile-name h1 {
+    margin-top: auto;
 }
 
 .profile-details {
-    padding: 20px;
+    padding: 30px;
 }
 
 .section-title {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 22px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 10px;
 }
 
 .details-list {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .details-list li {
@@ -62,4 +70,53 @@ body {
 
 .details-list strong {
     color: #333;
+}
+
+.logout-button {
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.logout-button:hover {
+    background-color: #cc0000;
+}
+
+.habits-status {
+    padding: 20px 30px 40px;
+}
+
+.habits-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.column {
+    flex: 1;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.column h3 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.column .details-list {
+    padding: 0;
+}
+
+.column .details-list li {
+    border-bottom: none;
+    padding: 5px 0;
+    text-align: center;
 }

@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: 'Arial', sans-serif;
+    font-family: var(--font-base);
     color: #ffffff;
     min-height: 100vh;
     background-size: cover;
