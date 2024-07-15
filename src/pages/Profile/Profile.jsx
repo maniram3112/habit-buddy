@@ -2,7 +2,7 @@ import React from 'react';
 import images from '../../assets';
 import './Profile.css';
 
-const Profile = ({ habits, onLogout }) => {
+const Profile = ({ habits }) => {
 
     const onGoingHabits = habits.filter(habit => habit.status === "on Going");
     const onHoldHabits = habits.filter(habit => habit.status === "on hold");
@@ -15,14 +15,14 @@ const Profile = ({ habits, onLogout }) => {
                 <div className="profile-name">
                     <h1>Tester</h1>
                 </div>
-                <button onClick={onLogout} className="logout-button">Logout</button>
+                <button className="logout-button">Logout</button>
             </div>
             <div className="profile-details">
                 <h2 className="section-title">User Details</h2>
                 <ul className="details-list">
                     <li><strong>Email:</strong> test@example.com</li>
-                    <li><strong>Username:</strong>test@3112</li>
-                    <li><strong>Joined:</strong>July 15, 2024</li>
+                    <li><strong>Username:</strong> test@3112</li>
+                    <li><strong>Joined:</strong> July 15, 2024</li>
                 </ul>
             </div>
             <div className="habits-status">
@@ -60,6 +60,9 @@ const Profile = ({ habits, onLogout }) => {
                     </div>
                 </div>
             </div>
+            <footer className="footer">
+                <p>© 2024 Habit Buddy. All rights reserved.</p>
+            </footer>
         </div>
     );
 };

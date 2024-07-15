@@ -5,17 +5,10 @@ import './Home.css';
 
 const { NavbarM, AddHabit, EditHabit, Streak } = components;
 
-const Home = ({ handleAuth, habits, setHabits}) => {
+const Home = ({ handleAuth, habits, setHabits }) => {
     const [showModal, setShowModal] = useState(false);
-    // const [habits, setHabits] = useState([]);
     const [editModal, setEditModal] = useState(false);
     const [currentHabit, setCurrentHabit] = useState(null);
-
-    // Load habits from local storage
-    // useEffect(() => {
-    //     const storedHabits = JSON.parse(localStorage.getItem('habits')) || [];
-    //     setHabits(storedHabits);
-    // }, []);
 
     // Function to add a new habit
     const handleAddHabit = (habit) => {
@@ -44,9 +37,20 @@ const Home = ({ handleAuth, habits, setHabits}) => {
 
     // Function to update an existing habit
     const handleUpdateHabit = (updateHabit) => {
-        const updatedHabits = habits.map((habit) =>
-            habit.id === updateHabit.id ? updateHabit : habit
-        );
+        const updatedHabits = habits.map((habit) => {
+            if (habit.id === updateHabit.id) {
+                if (habit.status !== "achieved") {
+                    return updateHabit;
+                } else {
+                    // If habit is already achieved, do not update streak
+                    return {
+                        ...updateHabit,
+                        streak: habit.streak  // Maintain the current streak
+                    };
+                }
+            }
+            return habit;
+        });
         setHabits(updatedHabits);
         localStorage.setItem('habits', JSON.stringify(updatedHabits));
         setEditModal(false);
@@ -85,7 +89,7 @@ const Home = ({ handleAuth, habits, setHabits}) => {
                 <div className="habits-list">
                     <h2>My Habits:</h2>
                     <ul>
-                        {habits.map((habit) => (
+                        {habits.filter(habit => habit.status !== "achieved").map((habit) => (
                             <li key={habit.id} className="habit-item">
                                 <span className="habit-name">{habit.habit}</span>
                                 <button

@@ -11,12 +11,13 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    padding-bottom: 50px; /* Ensure there's space at the bottom for the footer */
 }
 
 .profile-header {
     background-color: #007BFF;
     color: white;
-    padding: 40px 20px 60px;
+    padding: 40px 20px;
     text-align: center;
     position: relative;
 }
@@ -27,19 +28,15 @@ body {
     border-radius: 50%;
     border: 5px solid white;
     position: absolute;
-    top: 30px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .profile-name {
-    margin-top: 90px;
+    margin-top: 100px;
     font-size: 28px;
     font-weight: bold;
-}
-
-.profile-name h1 {
-    margin-top: auto;
 }
 
 .profile-details {
@@ -80,6 +77,9 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 .logout-button:hover {
@@ -119,4 +119,22 @@ body {
     border-bottom: none;
     padding: 5px 0;
     text-align: center;
+}
+
+.footer {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1rem;
+    background-color: #f1f1f1;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.footer p {
+    margin: 0.5rem 0;
+    font-size: 14px;
+    color: #555;
 }
