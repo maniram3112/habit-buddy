@@ -13,7 +13,6 @@ const {Content} = constants;
 const LandingPage = ({handleAuth}) =>{
 
     const [activeSection, setActiveSection] = useState(null);
-
     const navigate = useNavigate();
 
     const handleSectionChange = (section) =>{

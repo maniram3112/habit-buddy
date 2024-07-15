@@ -6,7 +6,7 @@ import './Home.css';
 
 const { NavbarM, AddHabit, EditHabit } = components;
 
-const Home = () => {
+const Home = ({ handleAuth }) => {
     const [showModal, setShowModal] = useState(false);
     const [habits, setHabits] = useState([]);
     const [editModal, setEditModal] = useState(false);
@@ -69,7 +69,7 @@ const Home = () => {
 
     return (
         <div className="home">
-            <NavbarM />
+            <NavbarM handleAuth={handleAuth} />
             <div className="home_container">
                 <div className="home-add">
                     <span className="add" onClick={handleOpenModal}>+</span>
