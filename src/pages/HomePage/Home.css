@@ -126,3 +126,143 @@
     font-size: 14px;
     color: #555;
 }
+
+@media screen and (max-width: 768px) {
+    .home-add {
+        margin: 0.5rem;
+        font-weight: 300;
+        font-size: 18px;
+    }
+    
+    .home-add .add {
+        border: 1px #333 solid;
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0.5rem;
+        border-radius: 8px;
+    }
+    
+    .habits-list {
+        padding-top: 0.1rem;
+    }
+    
+    .habits-list h2 {
+        margin: 1.25rem;
+    }
+    
+    .habits-list ul {
+        margin: 1.25rem;
+    }
+    
+    .habit-item {
+        margin-bottom: 0.rem;
+        gap: 1.5rem;
+        padding: 0.4rem;
+        border: 0.75px solid #ddd;
+    }
+    
+    .habit-name {
+        margin-right: 0.5rem;
+        font-weight: 400;
+    }
+    
+    .current-status {
+        margin-left: 0.25rem;
+        font-size: 15px;
+    }
+    
+    .streak-info {
+        gap: 0.25rem;
+    }
+    
+    .streak-info .streak-img {
+        margin-left: 0.25rem;
+        width: 30px;
+        height: 30px;
+    }
+    
+    .highest-streak {
+        width: 30%;
+        margin-top: 2rem;
+    }
+    
+    .highest-streak h2 {
+        font-size: 15px;
+    }
+    
+    .highest-streak img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .footer p {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .home-add {
+        margin: 0.25rem;
+        font-size: 15px;
+    }
+    
+    .home-add .add {
+        margin-top: 0.5rem;
+        border: 0.5px #333 solid;
+        width: 2rem;
+        height: 2rem;
+        padding: 0.25rem;
+        border-radius: 6px;
+    }
+    
+    .habits-list h2 {
+        margin: 1rem;
+        font-size: 15px;
+        font-weight: 400;
+    }
+    
+    .habits-list ul {
+        margin: 1.25rem;
+    }
+    
+    .habit-item {
+        margin-bottom: 1rem;
+        border-radius: 6px;
+        gap: 1rem;
+        padding: 0.2rem;
+        border: 0.55px solid #ddd;
+    }
+    
+    .habit-name {
+        margin-right: 0.4rem;
+        font-weight: 300;
+    }
+    
+    .current-status {
+        margin-left: 0.25rem;
+        font-size: 12px;
+    }
+    
+    .streak-info {
+        gap: 0.1rem;
+    }
+
+    .streak-info span{
+        font-size: 12px;
+    }
+
+    .streak-info .streak-img {
+        margin-left: 0.1rem;
+        width: 20px;
+        height: 20px;
+    }
+    
+    .highest-streak {
+        width: 30%;
+        margin-top: 1rem;
+    }
+    
+    .footer p {
+        font-size: 10px;
+    }
+}

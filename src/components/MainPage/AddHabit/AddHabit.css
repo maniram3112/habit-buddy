@@ -1,14 +1,6 @@
-/* .addHabit-modal{} */
-
-/* .addHabit-content{} */
-
-/* .addHabit-modal input{} */
-
 .addHabit-modal .btn{
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
-    /* gap: 15px; */
 }
 
 .btns .custom_btn{

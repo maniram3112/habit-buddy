@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import DropDownEdit from "../DropDownEdit/DropDownEdit";
-import './EditHabit.css';
 
 const EditHabit = ({habit, onClose, onUpdateHabit, onDeleteHabit}) =>{
 
@@ -44,9 +43,9 @@ const EditHabit = ({habit, onClose, onUpdateHabit, onDeleteHabit}) =>{
                 />
                 </div>
                 <div className="btns">
-                    <button className="editHabit-btn custom_btn" onClick={handleSave}>Save</button>
-                    <button className="editHabit-btn custom_btn" onClick={handleDelete}>Delete</button>
-                    <button className="editHabit-btn custom_btn" onClick={onClose}>Close</button>
+                    <button className="editHabit-btn custom_btn" style={{marginRight: '1rem'}} onClick={handleSave}>Save</button>
+                    <button className="editHabit-btn custom_btn" style={{marginRight: '1rem'}} onClick={handleDelete}>Delete</button>
+                    <button className="editHabit-btn custom_btn" style={{marginRight: '1rem'}} onClick={onClose}>Close</button>
                 </div>
             </div>
         </div>
