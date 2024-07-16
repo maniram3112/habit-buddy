@@ -13,7 +13,6 @@ You can access the live demo of Habit Buddy at [https://habit-buddy.netlify.app/
 - User-friendly Interface: Intuitive design to easily add, update, and track habits.
 - Daily Habit Tracking: Log your progress daily to maintain consistency.
 - Customizable Goals: Set personalized goals and reminders for each habit.
-- Data Visualization: Track your progress with visual charts and statistics.
 - Responsive Design: Accessible and optimized for various devices and screen sizes.
 
 ## Installation
@@ -31,8 +30,6 @@ Habit Buddy is a web-based application and does not require installation. Simply
 3. Adding Habits: Click on the "+" button to add new habits with customized goals and reminders.
 
 4. Tracking Progress: Mark your daily progress by clicking on each habit card.
-
-5. Visualize Progress: Navigate to the statistics section to view charts and insights into your habit journey.
 
 ## Technologies Used
 
