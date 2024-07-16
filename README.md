@@ -45,9 +45,3 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 ## Contact
 
 For questions or support, please reach out to us at [maniramthota12@gmail.com](mailto:maniramthota12@gmail.com).
-
----
-
-### Notes:
-- Update contact information, license details, and any other specifics according to your project's actual details and requirements.
-- Ensure all URLs (such as demo link and contact email) are correctly linked and functional in your actual README file.
