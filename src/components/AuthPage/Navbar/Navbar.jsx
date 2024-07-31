@@ -11,6 +11,7 @@ const Navbar = ({onSectionChange}) =>{
             <div className="authPage-btn">
                 <button className="custom_btn" onClick={() => onSectionChange('signin')}>SignIn</button>
                 <button className="custom_btn" onClick={() => onSectionChange('signup')}>SignUp</button>
+                <button className="custom_btn" onClick={() => onSectionChange('credential')}>Show Credentials</button>
             </div>
         </div>
     );

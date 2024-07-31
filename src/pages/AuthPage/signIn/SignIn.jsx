@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 
-const SignIn = ({handleAuth}) =>{
-
+const SignIn = ({ handleAuth }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSignIn = (e) =>{
+    const handleSignIn = (e) => {
         e.preventDefault();
 
-        if(email === 'test@gmail.com' && password === 'password'){
+        if (email === 'test@gmail.com' && password === 'password') {
             handleAuth(true, "Sign in successful");
+        } else {
+            handleAuth(false, "Invalid credentials");
         }
-        else{
-            handleAuth(false, "Invalid credentials")
-        }
-    }
-    return(
+    };
+
+    return (
         <div className="signIn_container">
             <form onSubmit={handleSignIn}>
                 <h2>Sign In</h2>
@@ -23,7 +22,7 @@ const SignIn = ({handleAuth}) =>{
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your mail address"
+                    placeholder="Enter your email address"
                     required
                 />
                 <input
