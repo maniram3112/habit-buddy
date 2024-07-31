@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import images from "../../assets";
 import components from "../../components";
 import './Home.css';
@@ -22,6 +22,7 @@ const Home = ({ handleAuth, habits, setHabits }) => {
     // Function to close or cancel the modal
     const handleCloseModal = () => {
         setShowModal(false);
+        setEditModal(false);
     };
 
     // Function to open the modal
@@ -69,6 +70,38 @@ const Home = ({ handleAuth, habits, setHabits }) => {
         setHabits(updatedHabits);
         localStorage.setItem('habits', JSON.stringify(updatedHabits));
     };
+
+    // Attach event listeners when modal is open
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape') {
+                handleCloseModal();
+            } else if (event.key === 'Enter') {
+                if (showModal) {
+                    const addHabitForm = document.querySelector('.add-habit-form');
+                    if (addHabitForm) {
+                        addHabitForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+                    }
+                } else if (editModal) {
+                    const editHabitForm = document.querySelector('.edit-habit-form');
+                    if (editHabitForm) {
+                        editHabitForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+                    }
+                }
+            }
+        };
+
+        if (showModal || editModal) {
+            document.addEventListener('keydown', handleKeyDown);
+        } else {
+            document.removeEventListener('keydown', handleKeyDown);
+        }
+        
+        // Cleanup event listeners on component unmount
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [showModal, editModal]);
 
     return (
         <div className="home">
